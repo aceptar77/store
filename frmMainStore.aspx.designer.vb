@@ -12,4 +12,40 @@ Option Explicit On
 
 
 Partial Public Class frmMainStore
+
+    '''<summary>
+    '''txtID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtID As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtFullName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFullName As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtMovilNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMovilNumber As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtEmail As Global.System.Web.UI.WebControls.TextBox
 End Class
