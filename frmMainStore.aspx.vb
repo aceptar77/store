@@ -6,12 +6,11 @@ Imports Newtonsoft.Json
 Public Class frmMainStore
     Inherits System.Web.UI.Page
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
-    End Sub
     Const documentType = "CC"
+    Const reference = "Store"
     Const locale = "es_CO"
     Const currency = "USD"
+    Const resultcreatepayrequestId = "resultcreatepayrequestId"
 
     ReadOnly service As String = ConfigurationManager.AppSettings("service")
     ReadOnly login As String = ConfigurationManager.AppSettings("login")
@@ -21,7 +20,7 @@ Public Class frmMainStore
     Protected Sub btnMakePayment(sender As Object, e As EventArgs)
         Dim paramPay As Rootobject = New Rootobject
         paramPay.ipAddress = Request.UserHostAddress
-        paramPay.expiration = "2020-10-15T09:19:28-05:00"
+        paramPay.expiration = (DateTime.Now.AddHours(1).ToString("yyyy-MM-ddTHH:mm:sszzz"))
         paramPay.returnUrl = paymentredirect
         paramPay.userAgent = Request.ServerVariables("HTTP_USER_AGENT")
         paramPay.locale = locale
@@ -40,16 +39,16 @@ Public Class frmMainStore
         buyer.mobile = txtMovilNumber.Text
         buyer.name = txtFullName.Text
         buyer.surname = txtFullName.Text
-        buyer.documentType = "CC"
+        buyer.documentType = documentType
 
         Dim payment As Payment = New Payment
         Dim amount As Amount = New Amount
         amount.currency = currency
-        amount.total = "289"
+        amount.total = txtPrice.InnerText
         payment.amount = amount
         payment.allowPartial = False
-        payment.description = "Pago"
-        payment.reference = "1"
+        payment.description = txtDescription.InnerText
+        payment.reference = reference
 
         paramPay.payment = payment
         paramPay.buyer = buyer
@@ -64,7 +63,7 @@ Public Class frmMainStore
                 Dim resultcreatepay As resultcreatepay = New resultcreatepay
                 Dim resultContent As String = result.Content.ReadAsStringAsync().Result
                 resultcreatepay = JsonConvert.DeserializeObject(Of resultcreatepay)(resultContent)
-                Session("resultcreatepayrequestId" + Session.SessionID) = resultcreatepay.requestId
+                Session(resultcreatepayrequestId + Session.SessionID) = resultcreatepay.requestId
                 Response.Redirect(resultcreatepay.processUrl)
             End If
         End Using

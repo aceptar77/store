@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
     <div class="checkout-left">
+        <p>&nbsp;</p>
         <table class="timetable_sub">
             <thead>
                 <tr>
@@ -26,15 +27,15 @@
                             </div>
                         </div>
                     </td>
-                    <td class="invert">Fortune Sunflower Oil</td>
+                    <td class="invert" id="txtDescription" runat="server">Fortune Sunflower Oil</td>
 
-                    <td class="invert" id="price">290</td>
+                    <td class="invert" id="txtPrice" runat="server">290</td>
 
                 </tr>
             </tbody>
         </table>
     </div>
-
+    <p>&nbsp;</p>
     <section class="creditly-wrapper wthree, w3_agileits_wrapper">
         <div class="clear"></div>
 

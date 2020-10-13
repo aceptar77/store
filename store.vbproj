@@ -370,6 +370,7 @@
     <Content Include="storeModel.edmx.diagram">
       <DependentUpon>storeModel.edmx</DependentUpon>
     </Content>
+    <Content Include="scriptbd.slq" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

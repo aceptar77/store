@@ -1,6 +1,4 @@
-﻿Imports System
-Imports System.IO
-Imports System.Security
+﻿Imports System.IO
 
 Class autplacetopay
     Private login As String

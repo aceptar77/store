@@ -3,7 +3,7 @@ Imports Newtonsoft.Json
 
 Public Class frmResultPay
     Inherits System.Web.UI.Page
-
+    Const resultcreatepayrequestId = "resultcreatepayrequestId"
     Dim service As String = ConfigurationManager.AppSettings("service")
     ReadOnly login As String = ConfigurationManager.AppSettings("login")
     ReadOnly tranKey As String = ConfigurationManager.AppSettings("tranKey")
@@ -17,7 +17,7 @@ Public Class frmResultPay
         auth.tranKey = autplacetopay.getTranKey
         auth.nonce = autplacetopay.getNonce
         auth.seed = autplacetopay.getSeed
-        requestId = Session("resultcreatepayrequestId" + Session.SessionID)
+        requestId = Session(resultcreatepayrequestId + Session.SessionID)
         service = service + requestId
         paramPay.auth = auth
         Dim saveorder As orderComponents = New orderComponents

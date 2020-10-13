@@ -14,6 +14,24 @@ Option Explicit On
 Partial Public Class frmMainStore
 
     '''<summary>
+    '''txtDescription control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDescription As Global.System.Web.UI.HtmlControls.HtmlTableCell
+
+    '''<summary>
+    '''txtPrice control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPrice As Global.System.Web.UI.HtmlControls.HtmlTableCell
+
+    '''<summary>
     '''txtID control.
     '''</summary>
     '''<remarks>
