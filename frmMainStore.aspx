@@ -28,7 +28,7 @@
                     </td>
                     <td class="invert">Fortune Sunflower Oil</td>
 
-                    <td class="invert">$290.00</td>
+                    <td class="invert" id="price">290</td>
 
                 </tr>
             </tbody>
@@ -72,5 +72,6 @@
             <asp:Button OnClick="btnMakePayment" Text="Make Payment" runat="server" CssClass="btn-primary" />
         </div>
     </div>
+
 </asp:Content>
 

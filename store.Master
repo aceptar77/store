@@ -137,19 +137,21 @@
             <!-- //footer -->
             <!-- js -->
             <script src="js/jquery-1.11.1.min.js"></script>
-            <!--quantity-->
-            <script>
-                $('.value-plus').on('click', function () {
-                    var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
-                    divUpd.text(newVal);
-                });
+    <!--quantity-->
+    <script>
+        $('.value-plus').on('click', function () {
+            var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
+            divUpd.text(newVal);
+            $('#price').text(newVal*290);
+        });
 
-                $('.value-minus').on('click', function () {
-                    var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
-                    if (newVal >= 1) divUpd.text(newVal);
-                });
-            </script>
-            <!--quantity-->
+        $('.value-minus').on('click', function () {
+            var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
+            if (newVal >= 1) divUpd.text(newVal);
+            $('#price').text(newVal * 290);
+        });
+    </script>
+    <!--quantity-->
         </asp:ContentPlaceHolder>
     </form>
 </body>
