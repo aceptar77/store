@@ -7,10 +7,9 @@ Public Class frmResultPay
     Dim service As String = ConfigurationManager.AppSettings("service")
     ReadOnly login As String = ConfigurationManager.AppSettings("login")
     ReadOnly tranKey As String = ConfigurationManager.AppSettings("tranKey")
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
+    Private Sub frmResultPay_Load(sender As Object, e As EventArgs) Handles Me.Load
         Dim paramPay As Rootobject = New Rootobject
-
         Dim autplacetopay As autplacetopay = New autplacetopay(login, tranKey)
         Dim requestId = String.Empty
         Dim auth As Auth = New Auth
@@ -30,10 +29,17 @@ Public Class frmResultPay
                 Dim resultContent As String = result.Content.ReadAsStringAsync().Result
                 Dim resultransaction As resultransaction = New resultransaction
                 resultransaction = JsonConvert.DeserializeObject(Of resultransaction)(resultContent)
-                Response.Write("test")
+
+                lblName.Text = resultransaction.request.buyer.name
+                lblDate.Text = Now()
+                lblStatus.Text = resultransaction.status.status
+                lblRef.Text = resultransaction.request.payment.reference
+                lblValue.Text = resultransaction.request.payment.amount.total
+                lblDescription.Text = resultransaction.request.payment.description
+                lblPaymentMethod.Text = resultransaction.payment.FirstOrDefault().paymentMethodName
+                lblAuthorization.Text = resultransaction.payment.FirstOrDefault().authorization
+                lblReceipt.Text = resultransaction.payment.FirstOrDefault().receipt
             End If
         End Using
-
     End Sub
-
 End Class
