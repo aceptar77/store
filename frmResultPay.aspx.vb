@@ -11,7 +11,7 @@ Public Class frmResultPay
     Private Sub frmResultPay_Load(sender As Object, e As EventArgs) Handles Me.Load
         Dim paramPay As Rootobject = New Rootobject
         Dim autplacetopay As autplacetopay = New autplacetopay(login, tranKey)
-        Dim requestId = String.Empty
+        Dim requestId As String = String.Empty
         Dim auth As Auth = New Auth
         auth.login = login
         auth.tranKey = autplacetopay.getTranKey
@@ -20,6 +20,8 @@ Public Class frmResultPay
         requestId = Session("resultcreatepayrequestId" + Session.SessionID)
         service = service + requestId
         paramPay.auth = auth
+        Dim saveorder As orderComponents = New orderComponents
+        Dim orde As orde = New orde
         Dim value As Object = JsonConvert.SerializeObject(paramPay)
         Using client = New HttpClient()
             client.BaseAddress = New Uri(service)
@@ -39,6 +41,14 @@ Public Class frmResultPay
                 lblPaymentMethod.Text = resultransaction.payment.FirstOrDefault().paymentMethodName
                 lblAuthorization.Text = resultransaction.payment.FirstOrDefault().authorization
                 lblReceipt.Text = resultransaction.payment.FirstOrDefault().receipt
+
+                orde.status = resultransaction.status.status
+                orde.customer_email = resultransaction.request.buyer.email
+                orde.customer_name = resultransaction.request.buyer.name
+                orde.customer_mobil = resultransaction.request.buyer.mobile
+                orde.create_at = Now
+                orde.upadte_at = Now
+                saveorder.saveOrder(orde)
             End If
         End Using
     End Sub

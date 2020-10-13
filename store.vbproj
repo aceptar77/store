@@ -112,9 +112,9 @@
     <Content Include="css\font-awesome.css" />
     <Content Include="css\style.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="frmlistorder.aspx" />
     <Content Include="frmResultPay.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="templateResultPay.html" />
     <Content Include="images\1.jpg" />
     <Content Include="images\1.png" />
     <Content Include="images\10.jpg" />
@@ -263,9 +263,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classPay\autplacetopay.vb" />
+    <Compile Include="classPay\orderComponents.vb" />
     <Compile Include="classPay\resultransaction.vb" />
     <Compile Include="classPay\resultcreatepay.vb" />
     <Compile Include="classPay\paramplacetopay.vb" />
+    <Compile Include="frmlistorder.aspx.designer.vb">
+      <DependentUpon>frmlistorder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmlistorder.aspx.vb">
+      <DependentUpon>frmlistorder.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="frmResultPay.aspx.designer.vb">
       <DependentUpon>frmResultPay.aspx</DependentUpon>
     </Compile>

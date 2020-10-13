@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
     <div class="checkout-left">
-
+            <p>&nbsp;</p>
         <h3>Hello
             <asp:Label id="lblName" Text="" runat="server" />
         </h3>
@@ -68,4 +68,5 @@
             </tbody>
         </table>
     </div>
+        <p>&nbsp;</p>
 </asp:Content>
