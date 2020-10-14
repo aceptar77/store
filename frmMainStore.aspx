@@ -43,7 +43,7 @@
             <div class="w3_agileits_card_number_grid_left">
                 <div class="controls">
                     <label class="control-label">CC: </label>
-                    <asp:TextBox ID="txtID" Text="" runat="server" class="form-control" placeholder="Full Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'ID';}" required="" />
+                    <asp:TextBox ID="txtID" Text="" runat="server" class="form-control" placeholder="ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'ID';}" required="" />
                 </div>
             </div>
             <div class="w3_agileits_card_number_grid_left">
